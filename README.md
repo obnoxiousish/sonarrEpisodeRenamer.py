@@ -2,7 +2,7 @@
 
 # Usage
 
-    PS C:\Users\a\Documents\Git\sonarrEpisodeRenamer.py> python .\sonarrRenamer.py -h
+    PS C:\Users\a\Documents\Git\sonarrEpisodeRenamer.py> python .\sonarrAddSeasonToEpisodeName.py -h
     usage: hardLinkRenamer [-h] [--fileExtension FILEEXTENSION] [--symLink] [--directory DIRECTORY]
                         [--glob GLOB] [--regex REGEX] [--log LOG] [--dontRemoveReleaseGroup]
                         [--releaseGroupBeginningBracket RELEASEGROUPBEGINNINGBRACKET]
