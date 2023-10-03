@@ -10,10 +10,8 @@ class hlRenamer:
         self.sharedData = sharedDataInstance
         
     def doAllWork(self):
-        # This script searchs a series folder for season folders
-        # Then it will search for episodes in the season folders
-        # Then it will create a link in the season folder to the episode in the season folder
-        # In the link the filename will contain a SXXEXX in the filename like S02E01
+        # This script instead of adding SXXEXX to filename and linking in same dir 
+        # Instead will change the S04E50 or S04E400 to S04E01 and link in same folder
         
         # Step 0
         self.findSeasonFolders()
