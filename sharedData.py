@@ -60,6 +60,13 @@ class sharedData:
         )
         
         self.parser.add_argument(
+            '--createLink',
+            default=False,
+            action='store_true',
+            help="Use this flag to make the script actually run, by default it just shows you what it would do if this flag were on."
+        )
+        
+        self.parser.add_argument(
             '--directory', 
             default='/tenTBHDD/tvShows/Shakugan No Shana',
             help='Directory to search in'

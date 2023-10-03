@@ -21,7 +21,7 @@ class hlRenamer:
             self.createFolderLinks()
         
         # Step 4
-        self.searchForEpisodesInSeasonFolders()
+        self.searchForEpisodesInSeasonFoldersAndCreateTheLinks()
         
     def findSeasonFolders(self):
         self.seasonFolders = []
@@ -71,7 +71,7 @@ class hlRenamer:
             self.sharedData.createLink(self.seasonFolder, self.linkDir)
             self.sharedData.logger.info(f'Created {self.linkType}: {self.linkDir}')
 
-    def searchForEpisodesInSeasonFolders(self):
+    def searchForEpisodesInSeasonFoldersAndCreateTheLinks(self):
         for self.linkDirItem in self.directoryList:
             self.linkDir = self.linkDirItem['fullLinkDir']
             self.seasonFolder = self.linkDirItem['seasonNumber']
@@ -95,7 +95,8 @@ class hlRenamer:
                 self.sharedData.logger.info(f'Official creating {self.linkType}: {self.fullNewEpisodeDir}')
                 self.fullOriginalEpisodeDir = f'{self.linkDir}/{self.episode}'
                 try:
-                    self.sharedData.createLink(self.fullOriginalEpisodeDir, self.fullNewEpisodeDir)
+                    if not self.sharedData.args.createLink:
+                        self.sharedData.createLink(self.fullOriginalEpisodeDir, self.fullNewEpisodeDir)
                 except FileExistsError:
                     self.sharedData.logger.info(f'Episode already exists, skipping: {self.episode}')
                     continue
