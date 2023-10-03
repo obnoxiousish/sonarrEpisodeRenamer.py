@@ -1,2 +1,32 @@
 # sonarrEpisodeRenamer.py
-If you have some anime that is like "SERIES/SERIES SEASON 2/SERIES EPISODE 1" it changes it to "SERIES/SERIES SEASON2/SERIES S02E01" so that it can be detected in Sonarr properly. Usually it detects first season fine and fails on the rest. This makes it detect all seasons without breaking qbittorrent or using extra space.
+
+# Usage
+
+    PS C:\Users\a\Documents\Git\sonarrEpisodeRenamer.py> python .\sonarrRenamer.py -h
+    usage: hardLinkRenamer [-h] [--fileExtension FILEEXTENSION] [--symLink] [--directory DIRECTORY]
+                        [--glob GLOB] [--regex REGEX] [--log LOG] [--dontRemoveReleaseGroup]
+                        [--releaseGroupBeginningBracket RELEASEGROUPBEGINNINGBRACKET]
+                        [--releaseGroupEndingBracket RELEASEGROUPENDINGBRACKET]
+
+    Supply an anime directory, fill search season folders for episodes and make it have SXXEXX in name.
+    Most applicable for Sonarr.
+
+    options:
+    -h, --help            show this help message and exit
+    --fileExtension FILEEXTENSION
+                            The file extension of the files you want to search for.
+    --symLink             Use this flag to make the script use symlinks instead of hardlinks.
+    --directory DIRECTORY
+                            Directory to search in
+    --glob GLOB           The string being used in glob, can be used to narrow your search.
+    --regex REGEX         The regex to be used when searching for season number in the season folder
+                            filenames.
+    --log LOG             File name for python logging.
+    --dontRemoveReleaseGroup
+                            Disable removing release group from folder names.
+    --releaseGroupBeginningBracket RELEASEGROUPBEGINNINGBRACKET
+                            The beginning bracket of the release group. Default=[
+    --releaseGroupEndingBracket RELEASEGROUPENDINGBRACKET
+                            The ending bracket of the release group. Default=]
+
+    Thanks for checking out my script!
