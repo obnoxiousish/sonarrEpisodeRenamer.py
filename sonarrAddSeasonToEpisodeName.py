@@ -54,7 +54,7 @@ class hlRenamer:
             else:
                 self.newSeasonFolder = self.seasonFolder.split(self.sharedData.args.releaseGroupBeginningBracket)[1].split(self.sharedData.args.releaseGroupEndingBracket)[1].rstrip().strip()
                 self.fullLinkDir = f'{self.sharedData.args.directory}/{self.newSeasonFolder}'
-                self.sharedData.logger.info(f'Removed release group from folder name & now going to create {self.linkType}: {self.fullLinkDir}')
+                self.sharedData.logger.info(f'Removed release group from folder name & now going to create {self.sharedData.linkType}: {self.fullLinkDir}')
 
             self.fullLinkDict = {
                 'seasonNumber': self.seasonNumber,
@@ -67,9 +67,9 @@ class hlRenamer:
             self.linkDir = self.linkDirItem['fullLinkDir']
             self.seasonNumber = self.linkDirItem['seasonNumber']
             
-            self.sharedData.logger.info(f'Creating {self.linkType}: {self.linkDir}')
+            self.sharedData.logger.info(f'Creating {self.sharedData.linkType}: {self.linkDir}')
             self.sharedData.createLink(self.seasonFolder, self.linkDir)
-            self.sharedData.logger.info(f'Created {self.linkType}: {self.linkDir}')
+            self.sharedData.logger.info(f'Created {self.sharedData.linkType}: {self.linkDir}')
 
     def searchForEpisodesInSeasonFoldersAndCreateTheLinks(self):
         for self.linkDirItem in self.directoryList:
@@ -92,7 +92,7 @@ class hlRenamer:
                     self.sharedData.logger.info(f'Episode name is in a different format? Skipping: {self.episode}')
                     continue
                 
-                self.sharedData.logger.info(f'Official creating {self.linkType}: {self.fullNewEpisodeDir}')
+                self.sharedData.logger.info(f'Official creating {self.sharedData.linkType}: {self.fullNewEpisodeDir}')
                 self.fullOriginalEpisodeDir = f'{self.linkDir}/{self.episode}'
                 try:
                     if self.sharedData.args.createLink:
@@ -100,7 +100,7 @@ class hlRenamer:
                 except FileExistsError:
                     self.sharedData.logger.info(f'Episode already exists, skipping: {self.episode}')
                     continue
-                self.sharedData.logger.info(f'Successfully created {self.linkType}: {self.fullNewEpisodeDir}')            
+                self.sharedData.logger.info(f'Successfully created {self.sharedData.linkType}: {self.fullNewEpisodeDir}')            
                 
 if __name__ == "__main__":
     instance = hlRenamer()
