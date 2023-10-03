@@ -95,7 +95,7 @@ class hlRenamer:
                 self.sharedData.logger.info(f'Official creating {self.linkType}: {self.fullNewEpisodeDir}')
                 self.fullOriginalEpisodeDir = f'{self.linkDir}/{self.episode}'
                 try:
-                    if not self.sharedData.args.createLink:
+                    if self.sharedData.args.createLink:
                         self.sharedData.createLink(self.fullOriginalEpisodeDir, self.fullNewEpisodeDir)
                 except FileExistsError:
                     self.sharedData.logger.info(f'Episode already exists, skipping: {self.episode}')
